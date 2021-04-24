@@ -1,34 +1,52 @@
 package stack
 
+import (
+	"fmt"
+	"math"
+)
+
 type Stack struct {
 	elem []interface{}
-	// len int32
-	top int32
+	top  uint32 // top 指向下一个可以插入的元素位置
+	cap  uint32
 }
 
-func NewStack(cap int32) *Stack {
-	return &Stack{
-		elem: make([]interface{}, 0, cap),
-		// len:0,
-		top:0,
-	}
-}
+const maxCap = math.MaxUint32
 
-func (this *Stack)Push(elem interface{}) {
-
-}
-
-func (this *Stack)Pop() interface{} {
-	var ret  interface{} = nil
-	if this.IsEmpty() {
+func NewStack(cap uint32) *Stack {
+	if cap > maxCap {
+		fmt.Println("stack cap: 0 <= ca p<= math.MaxInt32")
 		return nil
 	}
 
-
-	return  ret
+	return &Stack{
+		elem: make([]interface{}, 0, cap),
+		top:  0,
+		cap:  cap,
+	}
 }
 
-func (this *Stack)IsEmpty() bool {
+func (this *Stack) Push(e interface{}) {
+	if this.top == this.cap {
+		panic("no enough cap to push elem")
+	}
+
+	this.elem = append(this.elem, e)
+	this.top++
+}
+
+func (this *Stack) Pop() interface{} {
+	if this.IsEmpty() {
+		panic("pop elem form empty stack")
+	}
+
+	ret := this.elem[this.top-1]
+	this.top--
+
+	return ret
+}
+
+func (this *Stack) IsEmpty() bool {
 	if this.top == 0 {
 		return true
 	}
@@ -36,3 +54,6 @@ func (this *Stack)IsEmpty() bool {
 	return false
 }
 
+func (this *Stack) Len() uint32 {
+	return this.top
+}

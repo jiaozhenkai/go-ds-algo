@@ -40,6 +40,14 @@ func (this *Stack) Pop() interface{} {
 	return ret
 }
 
+func (this *Stack) Top() interface{} {
+	if this.IsEmpty() {
+		return nil
+	}
+
+	return this.elem[this.top-1]
+}
+
 func (this *Stack) IsEmpty() bool {
 	if this.top == 0 {
 		return true

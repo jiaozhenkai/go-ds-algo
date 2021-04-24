@@ -2,6 +2,7 @@ package stack_test
 
 import (
 	"fmt"
+	"testing"
 
 	stack "github.com/jiaozhenkai/go-ds-algo/linear-structure/stack"
 )
@@ -76,4 +77,15 @@ func ExampleStack_Push() {
 	// 2
 	// 1
 	// 0
+}
+
+func TestStack_Top(t *testing.T) {
+	s := stack.NewStack(3)
+
+	s.Push(1)
+	s.Push(2)
+
+	if s.Top().(int) != 2 {
+		t.Errorf("get %v, want %v", s.Top(), 2)
+	}
 }

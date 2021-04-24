@@ -1,7 +1,6 @@
 package stack
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -14,24 +13,19 @@ type Stack struct {
 const maxCap = math.MaxUint32
 
 func NewStack(cap uint32) *Stack {
-	if cap > maxCap {
-		fmt.Println("stack cap: 0 <= ca p<= math.MaxInt32")
-		return nil
-	}
-
 	return &Stack{
-		elem: make([]interface{}, 0, cap),
+		elem: make([]interface{}, cap, cap),
 		top:  0,
 		cap:  cap,
 	}
 }
 
 func (this *Stack) Push(e interface{}) {
-	if this.top == this.cap {
+	if this.top >= this.cap {
 		panic("no enough cap to push elem")
 	}
 
-	this.elem = append(this.elem, e)
+	this.elem[this.top] = e
 	this.top++
 }
 

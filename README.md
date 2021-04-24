@@ -11,3 +11,9 @@ go get -u github.com/jiaozhenkai/go-ds-algo
 ```
 import github.com/jiaozhenkai/go-ds-algo/linear-structure/stack
 ```
+
+使用 queue
+
+```
+import github.com/jiaozhenkai/go-ds-algo/linear-structure/queue
+```

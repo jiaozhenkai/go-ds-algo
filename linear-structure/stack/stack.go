@@ -1,16 +1,10 @@
 package stack
 
-import (
-	"math"
-)
-
 type Stack struct {
 	elem []interface{}
 	top  uint32 // top 指向下一个可以插入的元素位置
 	cap  uint32
 }
-
-const maxCap = math.MaxUint32
 
 func NewStack(cap uint32) *Stack {
 	return &Stack{

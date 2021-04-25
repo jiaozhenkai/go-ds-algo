@@ -15,5 +15,12 @@ import github.com/jiaozhenkai/go-ds-algo/linear-structure/stack
 使用 queue
 
 ```
-import github.com/jiaozhenkai/go-ds-algo/linear-structure/queue
+import github.com/jiaozhenkai/go-ds-algo/linear-structure/arrayqueue
 ```
+
+## content
+
+### 线性数据结构
+  * [arrayqueue](linear-structure/arrayqueue/arrayqueue.md)
+  * [stack](linear-structure/stack/stack.md)
+

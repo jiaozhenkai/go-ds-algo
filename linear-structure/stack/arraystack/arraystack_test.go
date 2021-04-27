@@ -1,20 +1,19 @@
-package stack_test
+package arraystack_test
 
 import (
 	"fmt"
+	"github.com/jiaozhenkai/go-ds-algo/linear-structure/stack/arraystack"
 	"testing"
-
-	stack "github.com/jiaozhenkai/go-ds-algo/linear-structure/stack"
 )
 
 func ExampleStack_IsEmpty() {
-	s := stack.NewStack(3)
+	s := arraystack.NewStack(3)
 	s.Push(1)
 	fmt.Println(s.IsEmpty())
 	s.Pop()
 	fmt.Println(s.IsEmpty())
 
-	s1 := stack.NewStack(0)
+	s1 := arraystack.NewStack(0)
 	fmt.Println(s1.IsEmpty())
 
 	// Output:
@@ -24,10 +23,10 @@ func ExampleStack_IsEmpty() {
 }
 
 func ExampleStack_Len() {
-	s := stack.NewStack(0)
+	s := arraystack.NewStack(0)
 	fmt.Println(s.Len())
 
-	s1 := stack.NewStack(3)
+	s1 := arraystack.NewStack(3)
 	s1.Push(1)
 	fmt.Println(s1.Len())
 
@@ -41,7 +40,7 @@ func ExampleStack_Pop() {
 	//s1 := stack.NewStack(0)
 	//s1.Pop()
 
-	s := stack.NewStack(3)
+	s := arraystack.NewStack(3)
 	for i := 0; i < 3; i++ {
 		s.Push(i)
 	}
@@ -64,7 +63,7 @@ func ExampleStack_Push() {
 	//s := stack.NewStack(0)
 	//s.Push(1)
 
-	s := stack.NewStack(3)
+	s := arraystack.NewStack(3)
 	for i := 0; i < 3; i++ {
 		s.Push(i)
 	}
@@ -80,7 +79,7 @@ func ExampleStack_Push() {
 }
 
 func TestStack_Top(t *testing.T) {
-	s := stack.NewStack(3)
+	s := arraystack.NewStack(3)
 
 	s.Push(1)
 	s.Push(2)
@@ -88,4 +87,12 @@ func TestStack_Top(t *testing.T) {
 	if s.Top().(int) != 2 {
 		t.Errorf("get %v, want %v", s.Top(), 2)
 	}
+}
+
+
+func TestString(t *testing.T) {
+	s := arraystack.NewStack(3)
+	s.Push(1)
+	s.Push(2)
+	fmt.Println(s)
 }

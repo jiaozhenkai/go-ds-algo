@@ -9,18 +9,18 @@ go get -u github.com/jiaozhenkai/go-ds-algo
 使用 stack:
 
 ```
-import github.com/jiaozhenkai/go-ds-algo/linear-structure/stack
+import github.com/jiaozhenkai/go-ds-algo/linear-structure/stack/arraystack
 ```
 
 使用 queue
 
 ```
-import github.com/jiaozhenkai/go-ds-algo/linear-structure/arrayqueue
+import github.com/jiaozhenkai/go-ds-algo/linear-structure/queue/arrayqueue
 ```
 
 ## content
 
 ### 线性数据结构
-  * [arrayqueue](linear-structure/arrayqueue/arrayqueue.md)
+  * [queue](linear-structure/queue/queue.md)
   * [stack](linear-structure/stack/stack.md)
 

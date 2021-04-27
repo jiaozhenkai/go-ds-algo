@@ -1,12 +1,17 @@
-package stack
+package arraystack
+
+import (
+	"fmt"
+	"strings"
+)
 
 type Stack struct {
 	elem []interface{}
-	top  uint32 // top 指向下一个可以插入的元素位置
-	cap  uint32
+	top  uint64 // top 指向下一个可以插入的元素位置
+	cap  uint64
 }
 
-func NewStack(cap uint32) *Stack {
+func NewStack(cap uint64) *Stack {
 	return &Stack{
 		elem: make([]interface{}, cap, cap),
 		top:  0,
@@ -50,6 +55,29 @@ func (this *Stack) IsEmpty() bool {
 	return false
 }
 
-func (this *Stack) Len() uint32 {
+func (this *Stack) Len() uint64 {
 	return this.top
+}
+
+func (this *Stack)	String() string {
+	return this.toString()
+}
+
+func (this *Stack) toString() string {
+	if this.IsEmpty() {
+		return "[]"
+	}
+
+	s := make([]string, 0, this.Len()+1)
+	s = append(s, "[")
+
+	var i uint64
+	for i=0; i<this.top; i++{
+		s = append(s, fmt.Sprintf("%v ", this.elem[i]))
+	}
+
+	ret := strings.Join(s, "")
+	ret = strings.Trim(ret, " ")
+
+	return ret + "]"
 }

@@ -1,6 +1,9 @@
 package arrayqueue
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type ArrayQueue struct {
 	elem  []interface{}
@@ -87,19 +90,27 @@ func (this *ArrayQueue) IsFull() bool {
 	return false
 }
 
-// ToString print queue elem from front to back
-func (this *ArrayQueue) ToString() {
+func (this *ArrayQueue) String() string {
+	return this.toString()
+}
+
+func (this *ArrayQueue) toString() string {
 	if this.IsEmpty() {
-		fmt.Println("[ ]")
-		return
+		return "[]"
 	}
 
 	var i uint64 = this.front
-	fmt.Printf("%v", "[ ")
+	tmp := make([]string, 0, this.len+1)
+	tmp = append(tmp, "[")
+
 	for i != this.back {
-		fmt.Printf("%v ", this.elem[i])
+		tmp = append(tmp, fmt.Sprintf("%v ", this.elem[i]))
 		i = (i + 1) % this.cap
 	}
 
-	fmt.Println("]")
+	tmpS := strings.Join(tmp, "")
+	tmpS = strings.Trim(tmpS, " ")
+
+	return tmpS + "]"
+
 }

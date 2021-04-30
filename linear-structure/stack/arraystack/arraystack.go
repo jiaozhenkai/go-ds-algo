@@ -8,23 +8,18 @@ import (
 type Stack struct {
 	elem []interface{}
 	top  uint64 // top 指向下一个可以插入的元素位置
-	cap  uint64
 }
 
-func NewStack(cap uint64) *Stack {
+func NewStack() *Stack {
 	return &Stack{
-		elem: make([]interface{}, cap, cap),
+		elem: make([]interface{}, 0, 10),
 		top:  0,
-		cap:  cap,
 	}
 }
 
 func (this *Stack) Push(e interface{}) {
-	if this.top >= this.cap {
-		panic("no enough cap to push elem")
-	}
-
-	this.elem[this.top] = e
+	// this.elem[this.top] = e
+	this.elem = append(this.elem, e)
 	this.top++
 }
 
@@ -34,6 +29,7 @@ func (this *Stack) Pop() interface{} {
 	}
 
 	ret := this.elem[this.top-1]
+	this.elem = this.elem[:this.top-1]
 	this.top--
 
 	return ret
@@ -55,11 +51,11 @@ func (this *Stack) IsEmpty() bool {
 	return false
 }
 
-func (this *Stack) Len() uint64 {
+func (this *Stack) Size() uint64 {
 	return this.top
 }
 
-func (this *Stack)	String() string {
+func (this *Stack) String() string {
 	return this.toString()
 }
 
@@ -68,11 +64,11 @@ func (this *Stack) toString() string {
 		return "[]"
 	}
 
-	s := make([]string, 0, this.Len()+1)
+	s := make([]string, 0, this.Size()+1)
 	s = append(s, "[")
 
 	var i uint64
-	for i=0; i<this.top; i++{
+	for i = 0; i < this.top; i++ {
 		s = append(s, fmt.Sprintf("%v ", this.elem[i]))
 	}
 

@@ -7,13 +7,13 @@ import (
 )
 
 func ExampleStack_IsEmpty() {
-	s := arraystack.NewStack(3)
+	s := arraystack.NewStack()
 	s.Push(1)
 	fmt.Println(s.IsEmpty())
 	s.Pop()
 	fmt.Println(s.IsEmpty())
 
-	s1 := arraystack.NewStack(0)
+	s1 := arraystack.NewStack()
 	fmt.Println(s1.IsEmpty())
 
 	// Output:
@@ -22,13 +22,13 @@ func ExampleStack_IsEmpty() {
 	// true
 }
 
-func ExampleStack_Len() {
-	s := arraystack.NewStack(0)
-	fmt.Println(s.Len())
+func ExampleStack_Size() {
+	s := arraystack.NewStack()
+	fmt.Println(s.Size())
 
-	s1 := arraystack.NewStack(3)
+	s1 := arraystack.NewStack()
 	s1.Push(1)
-	fmt.Println(s1.Len())
+	fmt.Println(s1.Size())
 
 	// Output:
 	// 0
@@ -37,10 +37,10 @@ func ExampleStack_Len() {
 
 func ExampleStack_Pop() {
 	// panic
-	//s1 := stack.NewStack(0)
+	//s1 := stack.NewStack()
 	//s1.Pop()
 
-	s := arraystack.NewStack(3)
+	s := arraystack.NewStack()
 	for i := 0; i < 3; i++ {
 		s.Push(i)
 	}
@@ -63,7 +63,7 @@ func ExampleStack_Push() {
 	//s := stack.NewStack(0)
 	//s.Push(1)
 
-	s := arraystack.NewStack(3)
+	s := arraystack.NewStack()
 	for i := 0; i < 3; i++ {
 		s.Push(i)
 	}
@@ -79,7 +79,7 @@ func ExampleStack_Push() {
 }
 
 func TestStack_Top(t *testing.T) {
-	s := arraystack.NewStack(3)
+	s := arraystack.NewStack()
 
 	s.Push(1)
 	s.Push(2)
@@ -90,9 +90,12 @@ func TestStack_Top(t *testing.T) {
 }
 
 
-func TestString(t *testing.T) {
-	s := arraystack.NewStack(3)
+func ExampleString() {
+	s := arraystack.NewStack()
 	s.Push(1)
 	s.Push(2)
 	fmt.Println(s)
+
+	// Output:
+	// [1 2]
 }

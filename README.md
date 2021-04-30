@@ -24,3 +24,6 @@ import github.com/jiaozhenkai/go-ds-algo/linear-structure/queue/arrayqueue
   * [queue](linear-structure/queue/queue.md)
   * [stack](linear-structure/stack/stack.md)
 
+## 参考
+
+[数据结构(C++语言版)第三版_邓俊辉](https://item.jd.com/12113082.html)

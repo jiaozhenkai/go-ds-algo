@@ -38,7 +38,7 @@
 
 * ### 栈混洗
 
-  > todo
+  > TODO
 
 * ### [括号匹配](example/brackets_match.go)
 
@@ -52,7 +52,13 @@
 
   * 应用：
   
-    * [表达式求值](example/expr_evaluate.go)
+    * [表达式求值](example/expr_evaluate.go) TODO
+
+* ### 试探回溯
+
+  * 应用：
+    * [八皇后]()
+
 
 ## 具体实现
 

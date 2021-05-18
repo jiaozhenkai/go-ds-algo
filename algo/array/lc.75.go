@@ -37,6 +37,7 @@ func sortColors1(nums []int) {
 		if nums[i] == 0 {
 			nums[zero+1], nums[i] = nums[i], nums[zero+1]
 			zero++
+			i++
 		}
 
 		if nums[i] == 2 {

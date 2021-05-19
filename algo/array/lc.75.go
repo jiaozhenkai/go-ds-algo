@@ -30,21 +30,16 @@ func sortColors1(nums []int) {
 	two := n   // [two, n-1] 区间元素都为 2
 
 	for i := 0; i < two; {
+
 		if nums[i] == 1 {
 			i++
-		}
-
-		if nums[i] == 0 {
+		} else if nums[i] == 0 {
 			nums[zero+1], nums[i] = nums[i], nums[zero+1]
 			zero++
 			i++
-		}
-
-		if nums[i] == 2 {
+		} else if nums[i] == 2 {
 			nums[two-1], nums[i] = nums[i], nums[two-1]
 			two--
 		}
-
 	}
-
 }

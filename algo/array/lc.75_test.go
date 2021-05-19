@@ -14,5 +14,5 @@ func Test_sortColors(t *testing.T) {
 func Test_sortColors1(t *testing.T) {
 	nums := []int{2, 0, 2, 1, 1, 0}
 	sortColors1(nums)
-	fmt.Println(nums)
+	// fmt.Println(nums)
 }
